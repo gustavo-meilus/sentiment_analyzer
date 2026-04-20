@@ -1,0 +1,16 @@
+services:
+  jupyter:
+    build: .
+    network_mode: host          # shares host network stack — localhost:11434 reaches Ollama directly
+    volumes:
+      - ../:/workspace          # full project: notebook, src/, output/
+      - ./data:/data            # replaces /content/drive/MyDrive/sentiment_analyzer
+    environment:
+      - SENTIMENT_DATA_ROOT=/data
+      - OLLAMA_URL=http://localhost:11434
+      - HF_TOKEN=${HF_TOKEN:-}
+    deploy:
+      resources:
+        limits:
+          memory: 20G
+          cpus: "6"

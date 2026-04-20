@@ -1,0 +1,22 @@
+[project]
+name = "sentiment-analyzer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Gustavo Meilus", email = "gustavo.meilus@monument.io" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "chat-downloader>=0.2.8",
+    "python-docx>=1.2.0",
+    "yt-chat-downloader>=0.0.3",
+]
+
+[project.scripts]
+extract = "extractor.cli:main"
+annotate = "annotator.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

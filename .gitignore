@@ -18,3 +18,5 @@ output
 pipeline
 
 docker/data
+
+*.csv
